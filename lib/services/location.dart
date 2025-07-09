@@ -284,7 +284,7 @@ class _ServiceDialogState extends State<_ServiceDialog> {
               decoration: BoxDecoration(
                 color: Colors.black.withAlpha(51),
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Colors.white.withAlpha(89)),
+                border: Border.all(color: Colors.white.withAlpha(51)),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
