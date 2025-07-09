@@ -23,6 +23,7 @@ class _RefreshButtonState extends State<RefreshButton> {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
+        FocusScope.of(context).unfocus();
         HapticFeedback.lightImpact();
         _handleRefresh();
       },

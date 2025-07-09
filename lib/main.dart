@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:weather_app/dependency_injection.dart';
 import 'package:weather_app/screens/weather_screen.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await dotenv.load();
+  DependencyInjection.init();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
@@ -15,11 +18,10 @@ void main() {
     systemNavigationBarColor: Colors.white,
     systemStatusBarContrastEnforced: false,
   );
-  runApp(MyApp());
-  DependencyInjection.init();
+  runApp(const MyApp());
 }
 
-class  MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override

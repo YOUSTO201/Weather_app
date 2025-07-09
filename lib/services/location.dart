@@ -260,9 +260,9 @@ class _ServiceDialogState extends State<_ServiceDialog> {
     _serviceTimer?.cancel();
     _serviceTimer = Timer.periodic(const Duration(seconds: 1), (timer) async {
       bool enabled = await Geolocator.isLocationServiceEnabled();
-      if (enabled && mounted && Navigator.of(widget.ctx).canPop()) {
+      if (enabled && mounted && Navigator.of(context).canPop()) {
         timer.cancel();
-        Navigator.of(widget.ctx).pop(true);
+        Navigator.of(context).pop(true);
       }
     });
   }
@@ -338,7 +338,7 @@ class _ServiceDialogState extends State<_ServiceDialog> {
                       TextButton(
                         onPressed: () {
                           HapticFeedback.mediumImpact();
-                          widget.fetchWeatherData();
+                          // widget.fetchWeatherData();
                           Navigator.of(widget.ctx).pop(false);
                         },
                         child: Text(

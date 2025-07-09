@@ -76,7 +76,7 @@ class NetworkController extends GetxController {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                'Please check your network connection',
+                                'Please check your network connection and Try again',
                                 style: TextStyle(
                                   color: Color.fromARGB(255, 215, 215, 215),
                                   fontSize: 18,
