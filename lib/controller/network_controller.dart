@@ -35,57 +35,53 @@ class NetworkController extends GetxController {
             barrierDismissible: false,
             builder: (ctx) {
               final size = MediaQuery.of(ctx).size;
-              return AlertDialog(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                content: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-                    child: Container(
-                      padding: EdgeInsets.all(16.0),
-                      decoration: BoxDecoration(
-                        color: Colors.black.withAlpha(76),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: Colors.white.withAlpha(38),
+              return PopScope(
+                canPop: false,
+                child: AlertDialog(
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  content: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+                      child: Container(
+                        padding: EdgeInsets.all(16.0),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withAlpha(76),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.white.withAlpha(38)),
                         ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            Icons.wifi_off_rounded,
-                            color: Colors.red[400],
-                            size: 40,
-                          ),
-                          SizedBox(height: size.height * 0.01),
-                          Text(
-                            'No Internet Connection',
-                            style: TextStyle(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.wifi_off_rounded,
                               color: Colors.red[400],
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              size: 40,
                             ),
-                          ),
-                          SizedBox(height: size.height * 0.02),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Please check your network connection and Try again',
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 215, 215, 215),
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                            SizedBox(height: size.height * 0.01),
+                            Text(
+                              'No Internet Connection',
+                              style: TextStyle(
+                                color: Colors.red[400],
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
-                            ],
-                          ),
-                        ],
+                            ),
+                            SizedBox(height: size.height * 0.02),
+                            Text(
+                              'Please check your network connection and Try again',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 215, 215, 215),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
